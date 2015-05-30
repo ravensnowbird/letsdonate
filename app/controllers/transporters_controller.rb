@@ -1,5 +1,5 @@
 class TransportersController < ApplicationController
-  before_action :set_transporter, only: [:show, :edit, :update, :destroy]
+  before_action :set_transporter, only: [:show, :edit, :update, :destroy, :transporter_dashboard]
 
   # GET /transporters
   # GET /transporters.json
@@ -24,6 +24,7 @@ class TransportersController < ApplicationController
   # POST /transporters
   # POST /transporters.json
   def create
+    #hey_wait
     @transporter = Transporter.new(transporter_params)
 
     respond_to do |format|
@@ -69,11 +70,11 @@ class TransportersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_transporter
-      @transporter = Transporter.find(params[:id])
+      @transporter = Transporter.find(params[:id] || params[:transporter_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transporter_params
-      params.require(:transporter).permit(:name, :phone, :email)
+      params.require(:transporter).permit(:name, :phone, :email, :user_id)
     end
 end

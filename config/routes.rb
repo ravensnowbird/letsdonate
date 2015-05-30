@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :transporters do
     get "transporter_dashboard"
+    resources :regions
   end
   resources :food_responces
   resources :regions
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'set_user_type'
+    get 'check_user_type'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
