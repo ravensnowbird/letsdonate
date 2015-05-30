@@ -3,6 +3,7 @@ class Ngo < ActiveRecord::Base
 	#has_many :regions, -> {where :region_for => 'Ngo'}, :foreign_key => 'region_for_id'
 	include RegionHelper
 	has_many :notifiers
+	belongs_to :user
 	after_create :create_notifier
 
 

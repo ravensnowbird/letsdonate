@@ -45,7 +45,24 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-12 col-sm-8">
+
+
+              <% if @notifier.incomplete? %>
                <%= render '/notifiers/form' %>
+               <% else %>
+
+               <div class="row">
+                 <div class="col-xs-12 col-sm-8">
+                   <p><strong>Name: </strong> <%= @notifier.name %> </p>
+                   <p><strong>Email: </strong> <%= @notifier.email %> </p>
+                   <p><strong>Mobile: </strong> <%= @notifier.phone %> </p>
+                 </p>
+               </div><!--/col-->
+             </div><!--/row-->
+
+             <% end %>
+
+
             </div>
           </div>
        </div>
@@ -55,6 +72,12 @@
 
   </div><!--/row-->
 </div><!--/container-->
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 <!--                FORM END                            -->

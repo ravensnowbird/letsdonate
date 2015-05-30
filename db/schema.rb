@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530130625) do
+ActiveRecord::Schema.define(version: 20150530201136) do
 
   create_table "coords", force: :cascade do |t|
     t.string   "lat"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20150530130625) do
     t.integer  "sufficient_for"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.text     "food_details"
+    t.text     "address"
+    t.string   "lat"
+    t.string   "lang"
   end
 
   create_table "food_responces", force: :cascade do |t|

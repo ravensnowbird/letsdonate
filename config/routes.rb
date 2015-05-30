@@ -17,9 +17,14 @@ Rails.application.routes.draw do
   resources :food_responces
   resources :regions
   resources :notifiers
-  resources :ngos
+  resources :ngos do
+    get :responce
+  end
   resources :list_items
-  resources :food_donors
+  resources :food_donors do
+    get :find_ngos
+    post :notification
+  end
 
   resources :users do
     get 'set_user_type'
