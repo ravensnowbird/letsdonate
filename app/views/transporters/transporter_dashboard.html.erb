@@ -1,3 +1,45 @@
-<h1>Transporter dashboard</h1>
-<h3>Add regions in which you are available </h3>
-<%= link_to "Add Regions", new_region_path, class: "btn-default btn"%>
+<div class='container'>
+  <h1>Transporter dashboard</h1>
+  <div class='col-lg-6'>
+    <h3>Add regions in which you are available </h3>
+
+    <%= link_to "Add Regions", new_transporter_region_path(@transporter), class: "btn-default btn"%>
+    <%= form_tag(transporter_create_regions_path(@transporter), {:method => :post}) do %>
+      <div>
+
+
+      </div>
+    <%= add_region_fields(render "transporters/region_fields") %>
+    <%= submit_tag "Submit",class: 'btn btn-success btn-sm' %>
+    <% end %>
+  </div>
+  <div class='col-lg-6'>
+    <h2>Your regions</h2>
+    <%# @transporter.suman %>
+    <% if @transporter_regions.present? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Address</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @transporter_regions.each do |region| %>
+          <tr>
+            <td><%= region["address"] %></td>
+            <td><%= region['lat'] %></td>
+            <td><%= region['long'] %></td>
+            <td><%= link_to "Delete",transporter_region_path(@transporter, region["id"]), method: 'delete', class: 'btn btn-xs btn-danger' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <h3>No regions added yet. </h3>
+    <% end %>
+  </div>
+</div>
