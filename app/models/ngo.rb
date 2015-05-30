@@ -4,6 +4,7 @@ class Ngo < ActiveRecord::Base
 	include RegionHelper
 	has_many :notifiers, :dependent => :destroy
 	accepts_nested_attributes_for :notifiers, :reject_if => lambda { |a| a[:email].blank? }, :allow_destroy => true
+	belongs_to :user
 	after_create :create_notifier
 
 

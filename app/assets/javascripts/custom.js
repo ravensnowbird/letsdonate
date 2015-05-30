@@ -1,7 +1,8 @@
 $(document).ready(function(){
+  $('.add_location').change(function(){
   getLocation();
+}
 });
-if($('#new_region').length){
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(getLatLong);
@@ -14,4 +15,14 @@ if($('#new_region').length){
     $('#region_lat').val(position.coords.latitude);
     $('#region_long').val(position.coords.longitude);
   }
+
+
+function add_region_fields(link, content) {
+   console.log("IN add_region_fields in custom.js")
+  var new_id = new Date().getTime();
+  $(link).prev().append(content.replace(/region_id/g, new_id));
+  //initialize datetime picker dynamically when agenda_item fields are loaded
+  $( ".delete_region" ).click(function() {
+    $(this).closest( "fieldset" ).remove();
+  });
 }

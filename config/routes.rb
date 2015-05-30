@@ -11,16 +11,24 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :transporters do
     get "transporter_dashboard"
+    post "create_regions"
+    resources :regions
   end
   resources :food_responces
   resources :regions
   resources :notifiers
-  resources :ngos
+  resources :ngos do
+    get :responce
+  end
   resources :list_items
-  resources :food_donors
+  resources :food_donors do
+    get :find_ngos
+    post :notification
+  end
 
   resources :users do
     get 'set_user_type'
+    get 'check_user_type'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
