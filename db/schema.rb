@@ -13,6 +13,7 @@
 
 
 ActiveRecord::Schema.define(version: 20150530130625) do
+
   create_table "coords", force: :cascade do |t|
     t.string   "lat"
     t.string   "long"
