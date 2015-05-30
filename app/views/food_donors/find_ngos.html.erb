@@ -1,0 +1,16 @@
+<h1>
+Maps
+</h1>
+<%= form_tag(food_donor_notification_path(@food_donor)) do %>
+	<% @ngos.each do |ngo| %>
+		<div class="field">
+      		<%= check_box_tag 'ngos[]', ngo.id %>
+      		<%= ngo.name %>
+    	</div>
+  	<% end %>
+  	<div class="row">
+<div class="actions">
+      <%= submit_tag "Notify" %>
+    </div>
+    </div>
+<% end %>

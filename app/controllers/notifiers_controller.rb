@@ -42,11 +42,11 @@ class NotifiersController < ApplicationController
   def update
     respond_to do |format|
       if @notifier.update(notifier_params)
-        format.html { redirect_to @notifier, notice: 'Notifier was successfully updated.' }
-        format.json { render :show, status: :ok, location: @notifier }
-      else
-        format.html { render :edit }
-        format.json { render json: @notifier.errors, status: :unprocessable_entity }
+         format.html { redirect_to ngo_path, notice: 'Profile was successfully updated.' }
+         format.json { render :show, status: :ok, location: @notifier }
+       else
+         format.html { render ngo_path }
+         format.json { render json: @notifier.errors, status: :unprocessable_entity }
       end
     end
   end

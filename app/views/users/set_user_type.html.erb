@@ -1,3 +1,14 @@
 <h1>Users#set_user_type</h1>
-<button type="button" class="btn btn-default">Transporter</button>
-<button type="button" class="btn btn-default">NGO  </button>
+<div class="row form-group">
+  <div class="col-md-2">
+    <!-- <div class="page-header"> -->
+      <label>Register as </label>
+    <!-- </div> -->
+  </div>
+  <div class="col-md-4">
+    <!-- <button type="button" class="btn btn-default navbar-btn">Transporter</button> -->
+    <%= link_to "Transporter", new_transporter_path, class: "btn btn-success btn-round" %>&nbsp;&nbsp;&nbsp;
+    <%= link_to "NGO", new_ngo_path, class: "btn btn-success btn-round" %>
+    <!-- <button type="button" class="btn btn-default navbar-btn">NGO</button> -->
+  </div>
+</div>

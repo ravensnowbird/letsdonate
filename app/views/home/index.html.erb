@@ -20,9 +20,9 @@
         <div class="navbar-collapse collapse">
 
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Donate</a></li>
-            <li class="active"><a href="index.html">Register your NGO</a></li>
-            <li class="active"><a href="index.html">Become a food transporter</a></li>
+            <li class="active"><a href="<%= new_food_donor_path %>">Donate</a></li>
+            <li class="active"><a href="<%= new_ngo_path %>">Register your NGO</a></li>
+            <li class="active"><a href="<%= new_transporter_path %>">Become a food transporter</a></li>
             <% if current_user.present? %>
             <li class="active"><%= link_to "logout",destroy_user_session_path, :method => :delete %></li>
             <% end %>
