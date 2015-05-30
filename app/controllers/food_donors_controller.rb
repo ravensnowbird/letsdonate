@@ -64,8 +64,7 @@ class FoodDonorsController < ApplicationController
 
   end
   def notification
-    # rafeeq
-    # @food_donor.send_notification
+    @food_donor.send_notifications(params[:ngos])
     redirect_to '/', :notice => "Thank you"
   end
 

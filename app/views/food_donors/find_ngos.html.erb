@@ -4,7 +4,7 @@ Maps
 <%= form_tag(food_donor_notification_path(@food_donor)) do %>
 	<% @ngos.each do |ngo| %>
 		<div class="field">
-      		<%= check_box_tag 'ngos[ids][]', ngo.id %>
+      		<%= check_box_tag 'ngos[]', ngo.id %>
       		<%= ngo.name %>
     	</div>
   	<% end %>
