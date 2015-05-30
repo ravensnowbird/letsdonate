@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Has transport:</strong>
+  <%= @food_donor.has_transport %>
+</p>
+
+<p>
+  <strong>Available till:</strong>
+  <%= @food_donor.available_till %>
+</p>
+
+<p>
+  <strong>Sufficient for:</strong>
+  <%= @food_donor.sufficient_for %>
+</p>
+
+<%= link_to 'Edit', edit_food_donor_path(@food_donor) %> |
+<%= link_to 'Back', food_donors_path %>

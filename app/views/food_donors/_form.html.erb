@@ -1,0 +1,29 @@
+<%= form_for(@food_donor) do |f| %>
+  <% if @food_donor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food_donor.errors.count, "error") %> prohibited this food_donor from being saved:</h2>
+
+      <ul>
+      <% @food_donor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :has_transport %><br>
+    <%= f.check_box :has_transport %>
+  </div>
+  <div class="field">
+    <%= f.label :available_till %><br>
+    <%= f.text_field :available_till %>
+  </div>
+  <div class="field">
+    <%= f.label :sufficient_for %><br>
+    <%= f.number_field :sufficient_for %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

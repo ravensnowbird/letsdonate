@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @notifier.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @notifier.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @notifier.email %>
+</p>
+
+<p>
+  <strong>Ngo:</strong>
+  <%= @notifier.ngo %>
+</p>
+
+<%= link_to 'Edit', edit_notifier_path(@notifier) %> |
+<%= link_to 'Back', notifiers_path %>
