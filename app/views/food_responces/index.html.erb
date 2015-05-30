@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Food Responces</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ngo</th>
+      <th>Food donor</th>
+      <th>Status</th>
+      <th>Has transport</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @food_responces.each do |food_responce| %>
+      <tr>
+        <td><%= food_responce.ngo %></td>
+        <td><%= food_responce.food_donor %></td>
+        <td><%= food_responce.status %></td>
+        <td><%= food_responce.has_transport %></td>
+        <td><%= link_to 'Show', food_responce %></td>
+        <td><%= link_to 'Edit', edit_food_responce_path(food_responce) %></td>
+        <td><%= link_to 'Destroy', food_responce, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Food responce', new_food_responce_path %>

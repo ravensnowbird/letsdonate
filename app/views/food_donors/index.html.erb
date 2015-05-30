@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Food Donors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Has transport</th>
+      <th>Available till</th>
+      <th>Sufficient for</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @food_donors.each do |food_donor| %>
+      <tr>
+        <td><%= food_donor.has_transport %></td>
+        <td><%= food_donor.available_till %></td>
+        <td><%= food_donor.sufficient_for %></td>
+        <td><%= link_to 'Show', food_donor %></td>
+        <td><%= link_to 'Edit', edit_food_donor_path(food_donor) %></td>
+        <td><%= link_to 'Destroy', food_donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Food donor', new_food_donor_path %>

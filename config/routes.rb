@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks"}
 
 
+  #devise_for :users
+  resources :transporters
+  resources :food_responces
+  resources :regions
+  resources :notifiers
+  resources :ngos
+  resources :list_items
+  resources :food_donors
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

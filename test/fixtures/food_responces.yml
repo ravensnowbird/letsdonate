@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ngo_id: 
+  food_donor_id: 
+  status: MyString
+  has_transport: false
+
+two:
+  ngo_id: 
+  food_donor_id: 
+  status: MyString
+  has_transport: false
