@@ -28,8 +28,9 @@ class TransportersController < ApplicationController
 
     respond_to do |format|
       if @transporter.save
-        format.html { redirect_to @transporter, notice: 'Transporter was successfully created.' }
-        format.json { render :show, status: :created, location: @transporter }
+        # format.html { redirect_to @transporter, notice: 'Transporter was successfully created.' }
+        # format.json { render :show, status: :created, location: @transporter }
+        format.html { redirect_to transporter_transporter_dashboard_path(@transporter), notice: 'Transporter was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @transporter.errors, status: :unprocessable_entity }
@@ -59,6 +60,10 @@ class TransportersController < ApplicationController
       format.html { redirect_to transporters_url, notice: 'Transporter was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def transporter_dashboard
+
   end
 
   private
