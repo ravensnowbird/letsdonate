@@ -1,5 +1,5 @@
 class TransportersController < ApplicationController
-  before_action :set_transporter, only: [:show, :edit, :update, :destroy, :transporter_dashboard]
+  before_action :set_transporter, only: [:show, :edit, :update, :destroy, :transporter_dashboard, :create_regions]
 
   # GET /transporters
   # GET /transporters.json
@@ -56,6 +56,7 @@ class TransportersController < ApplicationController
   # DELETE /transporters/1
   # DELETE /transporters/1.json
   def destroy
+
     @transporter.destroy
     respond_to do |format|
       format.html { redirect_to transporters_url, notice: 'Transporter was successfully destroyed.' }
@@ -64,7 +65,15 @@ class TransportersController < ApplicationController
   end
 
   def transporter_dashboard
+    @region = Region.new
+    @transporter_regions = @transporter.regions if @transporter.regions.present?
+  end
 
+  def create_regions
+    regions = []
+    params[:transporter].collect{|k,v| regions << {address: v["address"], lat: v["lat"], long: v["long"]}}
+    @transporter.add_regions(regions)
+    redirect_to :back, :notice => "Regions added successfully"
   end
 
   private

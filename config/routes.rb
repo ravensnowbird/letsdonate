@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :transporters do
     get "transporter_dashboard"
+    post "create_regions"
     resources :regions
   end
   resources :food_responces
