@@ -22,5 +22,17 @@ module Letsdonate
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      :address              => "smtp.sendgrid.net",
+      :port                 => 587,
+      :user_name            => 'FkT9kZ0i75',
+      :password             => 'abZ00EkuZA'
+      }
+      
   end
 end
