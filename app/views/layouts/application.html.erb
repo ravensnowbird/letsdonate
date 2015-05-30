@@ -1,16 +1,232 @@
-<!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-  <title>Letsdonate</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+
+	<title>Lets Donate - Waste Less. Feed More. </title>
+
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+
+	<!-- Bootstrap -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<!-- Icons -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alice|Open+Sans:400,300,700">
+	<!-- Custom styles -->
+	<%= stylesheet_link_tag    'application', media: 'all'  %>
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
 <body>
-<% if current_user.present? %>
-<%= link_to "logout",destroy_user_session_path, :method => :delete %>
-<% end %>
-<%= yield %>
 
+<%= yield %>
+<body class="home">
+
+<header id="header">
+	<div id="head" >
+		<h1 id="logo" class="text-center">
+			<%= image_tag "logo.png", :style => "background-color: rgba(255, 255, 255, 0.54);" %><br>
+			<span class="tagline" style="font-size: 2rem;">Waste Less. Feed More. </span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+
+			<div class="navbar-collapse collapse">
+
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Donate</a></li>
+					<li class="active"><a href="index.html">Register your NGO</a></li>
+					<li class="active"><a href="index.html">Become a food transporter</a></li>
+          <% if current_user.present? %>
+          <li class="active"><%= link_to "logout",destroy_user_session_path, :method => :delete %></li>
+          <% end %>
+				</ul>
+
+			</div><!--/.nav-collapse -->
+		</div>
+	</nav>
+</header>
+
+<main id="main">
+
+	<div class="container">
+
+		<div class="row section topspace">
+			<div class="col-md-12">
+				<p class="lead text-center text-muted">Ending food hunger is an achieveable goal. Saving just 30% of wasted food can eliminate food insecurity in India, and we need your help to do this. Donate and join us in ensuring only hunger is left behind!  </p>
+			</div>
+		</div> <!-- / section -->
+
+		<div class="row section featured topspace">
+			<h2 class="section-title"><span>How it works?</span></h2>
+			<div class="row">
+				<div class="col-sm-6 col-md-4">
+					<h3 class="text-center">Food Donors</h3>
+					<p>There are multiple areas where food in our country gets wasted. All you have to do is list out how much food you have and quantity. We will communicate with NGO's realtime and ask if they're interested in moving it to the needful</p>
+					<p class="text-center"><a href="" class="btn btn-action">Donate</a></p>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<h3 class="text-center">NGO's</h3>
+					<p>NGO's work to get surplus food from these donors across to the less fortunate people in cities across India. They will make sure food gets delivered to the needful with their team. If you are an NGO, Register with us to get notified if there are any donors around your regions
+</p>
+					<p class="text-center"><a href="" class="btn btn-action">Register</a></p>
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<h3 class="text-center">Transporters</h3>
+					<p>There are some instances where NGO's would not have enough man power to get the food picked up and delivered. Anyone can apply to become a transporter with Lets Donate. We will notify you when there is a need for pickup and drop.</p>
+					<p class="text-center"><a href="" class="btn btn-action">Apply</a></p>
+				</div>
+			</div>
+		</div> <!-- / section -->
+
+		<div class="row section recentworks topspace">
+
+			<h2 class="section-title"><span>Recent Donations</span></h2>
+
+			<div class="thumbnails recentworks row">
+
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+					<a class="thumbnail" href="sidebar-right.html">
+						<span class="img">
+							<img src="assets/images/s1.jpg" alt="">
+							<span class="cover"><span class="more">See details &rarr;</span></span>
+						</span>
+						<span class="title">Sample title - big data solutions</span>
+					</a>
+					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a> | <a href="">Logotype</a></span>
+					<h4></h4>
+					<p></p>
+				</div>
+
+			</div>
+
+		</div> <!-- /section -->
+
+		<div class="row section topspace">
+			<div class="panel panel-cta"><div class="panel-body">
+				<div class="col-lg-8">
+					<p>If you wish to make any <b>donations</b>, Please let us know what you'd like to donate. You can donate packaging items like
+						plates, glasses, spoons, etc.. </p>
+				</div>
+				<div class="col-lg-4 text-right">
+					<a href="http://www.gettemplate.com/downloads/initio.zip " class="btn btn-primary btn-download btn-lg">Donate</a>
+				</div>
+			</div></div>
+		</div> <!-- /section -->
+
+		<div class="row section clients topspace">
+			<h2 class="section-title"><span>NGOs</span></h2>
+			<div class="col-lg-12">
+				<p>
+					<img src="assets/images/sample_clients.png" alt="">
+				</p>
+			</div>
+		</div> <!-- /section -->
+
+	</div>	<!-- /container -->
+
+</main>
+
+<footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Contact</h3>
+				<div class="widget-body">
+					<p>+9032762521<br>
+						<a href="mailto:#">vivek@startups.in</a><br>
+						<br>
+						G1, RK Plaza, Addagutta Housing Society, TG, India 500090
+					</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Follow us</h3>
+				<div class="widget-body">
+					<p class="follow-me-icons">
+						<a href=""><i class="fa fa-twitter fa-2"></i></a>
+						<a href=""><i class="fa fa-dribbble fa-2"></i></a>
+						<a href=""><i class="fa fa-github fa-2"></i></a>
+						<a href=""><i class="fa fa-facebook fa-2"></i></a>
+					</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Team</h3>
+				<div class="widget-body">
+					<span>Vivek Sampara</span><br>
+					<span>Kishore BJV</span><br>
+					<span>Rafeeq Shaik</span><br>
+					<span>Suman Ghosh</span><br>
+					<span>Madhusudhan Rao</span>
+				</div>
+			</div>
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">AngelHack Hackathon</h3>
+				<div class="widget-body">
+					<p>Hyderabad<br>
+						<a href="mailto:#">http://angelhack.com/</a><br>
+						<br>
+					</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p>  </p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">
+						Copyright &copy; 2014, LetsDonate Pvt Ltd<br>
+						Design: <a href="http://www.gettemplate.com" rel="designer">Initio by GetTemplate</a> </p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+	<div class="fpro" style="display: none;">
+		<a class="fpro-close" href="#"><i class="fa fa-times"></i></a>
+		<div class="fpro-intro">See also:</div>
+		<h4 class="fpro-caption"><a target="_blank" href="/pro/progressus.html">Progressus PRO <span>Multipurpose Premium Bootstrap Temlplate</span></a> </h4>
+		<div class="fpro-media">
+			<a target="_blank" href="/pro/progressus.html"><img src="/images/pp-shots.png" alt="Progressus PRO"></a>
+			<div class="fpro-desc">
+				<p>
+					Progressus PRO is a clean and feature-rich Bootstrap theme which will save you a lot of time &amp; effort.
+					<a target="_blank" href="/pro/progressus.html"><b>View Details &rarr;</b></a></p>
+			</div>
+		</div>
+	</div>
+>>>>>>> 4047bfa53cac74e06390c4edb98bf26c3c93a06b
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<%= javascript_include_tag 'application'  %>
 </body>
 </html>
