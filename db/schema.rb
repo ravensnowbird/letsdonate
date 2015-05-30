@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530075808) do
+ActiveRecord::Schema.define(version: 20150530104912) do
+
+  create_table "homes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "providers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider_name"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "public_url"
+    t.string   "auth_secret"
+    t.string   "refresh_token"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +50,9 @@ ActiveRecord::Schema.define(version: 20150530075808) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "facebook_token"
+    t.string   "facebook_uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

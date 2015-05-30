@@ -21,7 +21,11 @@
 
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
+<body>
+
+<%= yield %>
 <body class="home">
+  <%= csrf_meta_tags %>
 
 <header id="header">
 	<div id="head" >
@@ -44,6 +48,9 @@
 					<li class="active"><a href="index.html">Donate</a></li>
 					<li class="active"><a href="index.html">Register your NGO</a></li>
 					<li class="active"><a href="index.html">Become a food transporter</a></li>
+          <% if current_user.present? %>
+          <li class="active"><%= link_to "logout",destroy_user_session_path, :method => :delete %></li>
+          <% end %>
 				</ul>
 
 			</div><!--/.nav-collapse -->
@@ -217,6 +224,7 @@
 			</div>
 		</div>
 	</div>
+>>>>>>> 4047bfa53cac74e06390c4edb98bf26c3c93a06b
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
