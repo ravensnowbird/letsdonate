@@ -1,0 +1,2 @@
+module FoodResponcesHelper
+end

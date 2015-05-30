@@ -58,4 +58,73 @@ ActiveRecord::Schema.define(version: 20150530104912) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
+  create_table "food_donors", force: :cascade do |t|
+    t.boolean  "has_transport"
+    t.string   "available_till"
+    t.integer  "sufficient_for"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "food_responces", force: :cascade do |t|
+    t.integer  "ngo_id"
+    t.integer  "food_donor_id"
+    t.string   "status"
+    t.boolean  "has_transport"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "food_responces", ["food_donor_id"], name: "index_food_responces_on_food_donor_id"
+  add_index "food_responces", ["ngo_id"], name: "index_food_responces_on_ngo_id"
+
+  create_table "list_items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "quantity"
+    t.integer  "food_donor_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "list_items", ["food_donor_id"], name: "index_list_items_on_food_donor_id"
+
+  create_table "ngos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "lat"
+    t.string   "lang"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifiers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.integer  "ngo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "notifiers", ["ngo_id"], name: "index_notifiers_on_ngo_id"
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "address"
+    t.string   "lat"
+    t.string   "long"
+    t.string   "region_for"
+    t.integer  "region_for_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "transporters", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> added all modals
+
 end
