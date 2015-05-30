@@ -6,24 +6,21 @@ module RegionHelper
 		regions.each do |region|
 			region[:regionfor] = self.class.name
 			region[:regionforid] = self.id.to_s
-			region[:coord] = {}
-			region[:coord][:x] = region.delete(:lat)
-			region[:coord][:y] = region.delete(:lang)
+			region[:coord][:x] = region[:coord].delete(:lat) if region[:coord]
+			region[:coord][:y] = region[:coord].delete(:lang) if region[:coord]
 			r = Region.new_from_hash(region)
 			r.save
 		end
 	end
 	def show_region(id)
-		Region.fing(id)
+		Region.find(id)
 	end
 	def update_region(id,values = {})
 		region = show_region(id)
 		values.each do |key,val|
 			if [:lat,:lang].include? key
-				region[:coord][x] = val if key == :lat
-				region[:coord][y] = val if key == :lang
-			else
-				region[key] = val
+				values[:coord][x] = values.delete(:lat) if key == :lat
+				values[:coord][y] = values.delete(:lang) if key == :lang
 			end
 		end
 		region.update(region)
