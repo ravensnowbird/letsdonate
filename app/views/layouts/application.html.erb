@@ -21,123 +21,12 @@
 
 	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
 </head>
-<body>
 
-<%= yield %>
+
+
 <body class="home">
   <%= csrf_meta_tags %>
-
-<header id="header">
-	<div id="head" >
-		<h1 id="logo" class="text-center">
-			<%= image_tag "logo.png", :style => "background-color: rgba(255, 255, 255, 0.54);" %><br>
-			<span class="tagline" style="font-size: 2rem;">Waste Less. Feed More. </span>
-		</h1>
-	</div>
-
-	<nav class="navbar navbar-default navbar-sticky">
-		<div class="container-fluid">
-
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-			</div>
-
-			<div class="navbar-collapse collapse">
-
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="index.html">Donate</a></li>
-					<li class="active"><a href="index.html">Register your NGO</a></li>
-					<li class="active"><a href="index.html">Become a food transporter</a></li>
-          <% if current_user.present? %>
-          <li class="active"><%= link_to "logout",destroy_user_session_path, :method => :delete %></li>
-          <% end %>
-				</ul>
-
-			</div><!--/.nav-collapse -->
-		</div>
-	</nav>
-</header>
-
-<main id="main">
-
-	<div class="container">
-
-		<div class="row section topspace">
-			<div class="col-md-12">
-				<p class="lead text-center text-muted">Ending food hunger is an achieveable goal. Saving just 30% of wasted food can eliminate food insecurity in India, and we need your help to do this. Donate and join us in ensuring only hunger is left behind!  </p>
-			</div>
-		</div> <!-- / section -->
-
-		<div class="row section featured topspace">
-			<h2 class="section-title"><span>How it works?</span></h2>
-			<div class="row">
-				<div class="col-sm-6 col-md-4">
-					<h3 class="text-center">Food Donors</h3>
-					<p>There are multiple areas where food in our country gets wasted. All you have to do is list out how much food you have and quantity. We will communicate with NGO's realtime and ask if they're interested in moving it to the needful</p>
-					<p class="text-center"><a href="" class="btn btn-action">Donate</a></p>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<h3 class="text-center">NGO's</h3>
-					<p>NGO's work to get surplus food from these donors across to the less fortunate people in cities across India. They will make sure food gets delivered to the needful with their team. If you are an NGO, Register with us to get notified if there are any donors around your regions
-</p>
-					<p class="text-center"><a href="" class="btn btn-action">Register</a></p>
-				</div>
-				<div class="col-sm-6 col-md-4">
-					<h3 class="text-center">Transporters</h3>
-					<p>There are some instances where NGO's would not have enough man power to get the food picked up and delivered. Anyone can apply to become a transporter with Lets Donate. We will notify you when there is a need for pickup and drop.</p>
-					<p class="text-center"><a href="" class="btn btn-action">Apply</a></p>
-				</div>
-			</div>
-		</div> <!-- / section -->
-
-		<div class="row section recentworks topspace">
-
-			<h2 class="section-title"><span>Recent Donations</span></h2>
-
-			<div class="thumbnails recentworks row">
-
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-					<a class="thumbnail" href="sidebar-right.html">
-						<span class="img">
-							<img src="assets/images/s1.jpg" alt="">
-							<span class="cover"><span class="more">See details &rarr;</span></span>
-						</span>
-						<span class="title">Sample title - big data solutions</span>
-					</a>
-					<span class="details"><a href="">Web design</a> | <a href="">Wordpress</a> | <a href="">Logotype</a></span>
-					<h4></h4>
-					<p></p>
-				</div>
-
-			</div>
-
-		</div> <!-- /section -->
-
-		<div class="row section topspace">
-			<div class="panel panel-cta"><div class="panel-body">
-				<div class="col-lg-8">
-					<p>If you wish to make any <b>donations</b>, Please let us know what you'd like to donate. You can donate packaging items like
-						plates, glasses, spoons, etc.. </p>
-				</div>
-				<div class="col-lg-4 text-right">
-					<a href="http://www.gettemplate.com/downloads/initio.zip " class="btn btn-primary btn-download btn-lg">Donate</a>
-				</div>
-			</div></div>
-		</div> <!-- /section -->
-
-		<div class="row section clients topspace">
-			<h2 class="section-title"><span>NGOs</span></h2>
-			<div class="col-lg-12">
-				<p>
-					<img src="assets/images/sample_clients.png" alt="">
-				</p>
-			</div>
-		</div> <!-- /section -->
-
-	</div>	<!-- /container -->
-
-</main>
-
+	<%= yield %>
 <footer id="footer">
 	<div class="container">
 		<div class="row">
@@ -224,7 +113,6 @@
 			</div>
 		</div>
 	</div>
->>>>>>> 4047bfa53cac74e06390c4edb98bf26c3c93a06b
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
