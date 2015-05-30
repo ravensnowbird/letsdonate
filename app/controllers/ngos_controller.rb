@@ -10,6 +10,7 @@ class NgosController < ApplicationController
   # GET /ngos/1
   # GET /ngos/1.json
   def show
+    @notifier = @ngo.notifiers.where(:id => current_user.id).first
   end
 
   # GET /ngos/new
@@ -25,6 +26,7 @@ class NgosController < ApplicationController
   # POST /ngos.json
   def create
     @ngo = Ngo.new(ngo_params)
+    @ngo.user = current_user
 
     respond_to do |format|
       if @ngo.save
