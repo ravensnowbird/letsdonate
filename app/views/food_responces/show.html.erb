@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ngo:</strong>
+  <%= @food_responce.ngo %>
+</p>
+
+<p>
+  <strong>Food donor:</strong>
+  <%= @food_responce.food_donor %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @food_responce.status %>
+</p>
+
+<p>
+  <strong>Has transport:</strong>
+  <%= @food_responce.has_transport %>
+</p>
+
+<%= link_to 'Edit', edit_food_responce_path(@food_responce) %> |
+<%= link_to 'Back', food_responces_path %>

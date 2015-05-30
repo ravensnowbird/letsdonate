@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Regions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Region for</th>
+      <th>Region for</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regions.each do |region| %>
+      <tr>
+        <td><%= region.address %></td>
+        <td><%= region.lat %></td>
+        <td><%= region.long %></td>
+        <td><%= region.region_for %></td>
+        <td><%= region.region_for_id %></td>
+        <td><%= link_to 'Show', region %></td>
+        <td><%= link_to 'Edit', edit_region_path(region) %></td>
+        <td><%= link_to 'Destroy', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Region', new_region_path %>
