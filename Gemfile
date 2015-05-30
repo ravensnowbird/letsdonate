@@ -45,3 +45,4 @@ end
 
 #devise
 gem 'devise'
+gem 'clusterpoint'

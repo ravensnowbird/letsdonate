@@ -1,2 +1,3 @@
-class Region < ActiveRecord::Base
+class Region < ClusterPoint::Document
+	contains :coord
 end
