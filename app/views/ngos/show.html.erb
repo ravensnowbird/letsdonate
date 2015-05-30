@@ -1,24 +1,60 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ngo.name %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @ngo.address %>
-</p>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @ngo.lat %>
-</p>
+<!--      FORM START                                          -->
 
-<p>
-  <strong>Lang:</strong>
-  <%= @ngo.lang %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <h3>NGO Details</h3>
+    </div>
+      <div class="col-md-4">
+        <h3>Profile</h3>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-xs-10">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <h2> <%= @ngo.name %> </h2>
+              <p><strong>About: </strong>  </p>
+              <p><strong>Address: </strong> <%= @ngo.address %> </p>
+              <p><strong>Latitude: </strong> <%= @ngo.lat %> </p>
+                <p><strong>Longitude: </strong> <%= @ngo.lang %>
+              </p>
+            </div><!--/col-->
+            <div class="clearfix"></div>
+            <div class="col-xs-12 col-sm-4">
 
-<%= link_to 'Edit', edit_ngo_path(@ngo) %> |
-<%= link_to 'Back', ngos_path %>
+            </div><!--/col-->
+            <div class="col-xs-12 col-sm-4">
+
+            </div><!--/col-->
+            <div class="col-xs-12 col-sm-4">
+
+            </div><!--/col-->
+          </div><!--/row-->
+        </div><!--/panel-body-->
+      </div><!--/panel-->
+    </div><!--/col-md-8-->
+
+    <div class="col-md-4 col-xs-10">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+               <%= render '/notifiers/form' %>
+            </div>
+          </div>
+       </div>
+     </div>
+    </div>
+
+
+  </div><!--/row-->
+</div><!--/container-->
+
+
+<!--                FORM END                            -->

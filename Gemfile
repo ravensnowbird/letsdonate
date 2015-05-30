@@ -52,3 +52,5 @@ end
 #devise
 gem 'devise'
 gem 'clusterpoint'
+#better errors
+gem 'better_errors', '~> 2.1.1'
