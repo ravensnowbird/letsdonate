@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
 
   #devise_for :users
-  resources :transporters
+  resources :transporters do
+    get "transporter_dashboard"
+  end
   resources :food_responces
   resources :regions
   resources :notifiers
