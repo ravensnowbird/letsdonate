@@ -1,7 +1,9 @@
 $(document).ready(function(){
-  getLocation();
+  $('.add_location').change(function(){
+    getLocation();
+  });
+  
 });
-if($('#new_region').length){
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(getLatLong);
@@ -14,4 +16,3 @@ if($('#new_region').length){
     $('#region_lat').val(position.coords.latitude);
     $('#region_long').val(position.coords.longitude);
   }
-}

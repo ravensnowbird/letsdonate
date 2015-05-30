@@ -1,5 +1,5 @@
 class FoodDonorsController < ApplicationController
-  before_action :set_food_donor, only: [:show, :edit, :update, :destroy]
+  before_action :set_food_donor, only: [:show, :edit, :update, :destroy, :find_ngos, :notification]
 
   # GET /food_donors
   # GET /food_donors.json
@@ -25,10 +25,9 @@ class FoodDonorsController < ApplicationController
   # POST /food_donors.json
   def create
     @food_donor = FoodDonor.new(food_donor_params)
-
     respond_to do |format|
       if @food_donor.save
-        format.html { redirect_to @food_donor, notice: 'Food donor was successfully created.' }
+        format.html { redirect_to food_donor_find_ngos_url(@food_donor), notice: 'Food donor was successfully created.' }
         format.json { render :show, status: :created, location: @food_donor }
       else
         format.html { render :new }
@@ -60,15 +59,24 @@ class FoodDonorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def find_ngos
+    @ngos = Ngo.all
+
+  end
+  def notification
+    # rafeeq
+    # @food_donor.send_notification
+    redirect_to '/', :notice => "Thank you"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food_donor
-      @food_donor = FoodDonor.find(params[:id])
+      @food_donor = FoodDonor.find(params[:id] || params[:food_donor_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_donor_params
-      params.require(:food_donor).permit(:has_transport, :available_till, :sufficient_for)
+      params.require(:food_donor).permit(:has_transport, :available_till, :sufficient_for, :name, :email, :phone, :address, :lat, :lang, :food_details)
     end
 end

@@ -11,19 +11,63 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :has_transport %><br>
-    <%= f.check_box :has_transport %>
+ <div class="row">
+  <div class="col-sm-4">
+    <div class="input-group">
+      <%= f.label :name %><br>
+     <%= f.text_field :name %>
+    </div>
+    <div class="field">
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :available_till %><br>
-    <%= f.text_field :available_till %>
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :sufficient_for %><br>
-    <%= f.number_field :sufficient_for %>
+    <%= f.label :address %><br>
+    <%= f.text_area :address, :class => 'add_location' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  
   </div>
+  <div class="col-sm-4">
+  
+    
+      <div class="field">
+        <%= f.label :available_till %><br>
+        <%= f.text_field :available_till %>
+    </div>
+    <div class="field">
+      <%= f.label :sufficient_for %><br>
+      <%= f.text_field :sufficient_for %>
+    </div>
+    
+    
+    <div class="field">
+        <%= f.label :food_details %><br>
+        <%= f.text_field :food_details %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :has_transport %>
+      <%= f.label :has_transport %>
+    </div>
+  </div>
+</div>
+
+<%= f.hidden_field :lat, :id => 'region_lat' %>
+<%= f.hidden_field :lang, :id => 'region_long' %>
+
+<div class="row">
+<div class="actions">
+      <%= f.submit %>
+    </div>
+    </div>
+
+  
+  
+  
+  
 <% end %>
