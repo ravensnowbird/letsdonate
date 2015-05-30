@@ -7,8 +7,8 @@ module RegionHelper
 			region[:regionfor] = self.class.name
 			region[:regionforid] = self.id.to_s
 			region[:coord] = {}
-			region[:coord][:lat] = region.delete(:lat)
-			region[:coord][:lang] = region.delete(:lang)
+			region[:coord][:x] = region.delete(:lat)
+			region[:coord][:y] = region.delete(:lang)
 			r = Region.new_from_hash(region)
 			r.save
 		end
@@ -20,7 +20,8 @@ module RegionHelper
 		region = show_region(id)
 		values.each do |key,val|
 			if [:lat,:lang].include? key
-				region[:coord][key] = val
+				region[:coord][x] = val if key == :lat
+				region[:coord][y] = val if key == :lang
 			else
 				region[key] = val
 			end

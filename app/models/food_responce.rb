@@ -1,3 +1,4 @@
+require 'region_helper'
 class FoodResponce < ActiveRecord::Base
   belongs_to :ngo
   belongs_to :food_donor
