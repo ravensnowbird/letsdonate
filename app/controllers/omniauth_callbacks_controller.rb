@@ -17,7 +17,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       p "Updating user......."
       p @user
       p "signing in user in else"
-      sign_in_and_redirect @user, :event => :authentication
+      sign_in(:user, @user)
+      redirect_to user_set_user_type_path(@user)
     end
   end
 
