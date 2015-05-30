@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.add_location').change(function(){
   getLocation();
-}
+});
 });
   function getLocation() {
     if (navigator.geolocation) {

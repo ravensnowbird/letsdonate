@@ -1,0 +1,5 @@
+$('#region_<%= params["id"] %>').remove();
+if($('tr[id^="region_"]').length === 0){
+  console.log("In if replaceing table");
+  $('#regions_table').html("<h3>No regions added yet. </h3>");
+}
