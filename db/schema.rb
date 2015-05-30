@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530104912) do
+ActiveRecord::Schema.define(version: 20150530114356) do
+
+  create_table "coords", force: :cascade do |t|
+    t.string   "lat"
+    t.string   "long"
+    t.integer  "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "coords", ["region_id"], name: "index_coords_on_region_id"
 
 
 end
