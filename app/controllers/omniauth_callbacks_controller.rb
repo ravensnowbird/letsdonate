@@ -9,13 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       p "user found"
       p "signing in user in if"
       sign_in_and_redirect @user, :event => :authentication
-      #redirect_to root_path , notice: "Connected #{omniauth.provider} successfully"
     else
-      # User.create(:name => omniauth.extra[:raw_info][:name], :email => omniauth.extra[:raw_info][:name], )
-      # Provider.create()
-      #session["devise.facebook_data"] = request.env["omniauth.auth"]
-      #hey_wait
-      #redirect_to new_user_registration_url
       p "Creating user........"
       @user = User.create!({:email => omniauth["info"]["email"], :password => "00000000", :password_confirmation => "00000000" })
       p @user
