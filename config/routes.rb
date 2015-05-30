@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  ##get 'users/set_user_type'
+
   #devise_for :users
 
   root to: "home#index"
@@ -14,6 +16,10 @@ Rails.application.routes.draw do
   resources :ngos
   resources :list_items
   resources :food_donors
+
+  resources :users do
+    get 'set_user_type'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
