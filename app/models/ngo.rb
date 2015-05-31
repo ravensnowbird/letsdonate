@@ -16,11 +16,18 @@ class Ngo < ActiveRecord::Base
 		end
 	end
 
+  def self.current=(user)
+    Thread.current[:current_user] = user
+  end
+
+  def self.current
+    Thread.current[:current_user]
+  end
 
 	private
 
 	def create_notifier
-		self.notifiers.create(:name => self.name)
+		self.notifiers.create(:name => self.name, :email => Ngo.current.email)
 	end
 
 end

@@ -1,6 +1,6 @@
 class FoodDonorsController < ApplicationController
   before_action :set_food_donor, only: [:show, :edit, :update, :destroy, :find_ngos, :notification]
-  before_action :authenticate_user!
+  skip_before_filter :authenticate_user!
 
   # GET /food_donors
   # GET /food_donors.json
