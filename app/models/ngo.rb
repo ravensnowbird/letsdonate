@@ -4,6 +4,7 @@ class Ngo < ActiveRecord::Base
 	include RegionHelper
 	has_many :notifiers
 	belongs_to :user
+	has_many :food_responces
 	after_create :create_notifier
 
 

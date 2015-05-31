@@ -1,6 +1,7 @@
 <h1>Editing Food Responce</h1>
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to 'Show', @food_responce %> |
-<%= link_to 'Back', food_responces_path %>
+<%= link_to 'Accept Have Transport', ngo_update_food_responce_path(@ngo,@food_responce) + '?food_responce[status]=AcceptedWithTransport', :method => 'put'%> |
+<%= link_to 'Accept Without Transport', ngo_update_food_responce_path(@ngo,@food_responce) + '?food_responce[status]=AcceptedWithoutTransport', :method => 'put' %> |
+<%= link_to 'Reject', ngo_update_food_responce_path(@ngo,@food_responce) + '?food_responce[status]=Rejected', :method => 'put'%> 

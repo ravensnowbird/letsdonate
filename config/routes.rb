@@ -12,11 +12,14 @@ Rails.application.routes.draw do
   resources :transporters do
     get "transporter_dashboard"
   end
-  resources :food_responces
+  resources :food_responces do
+    get :transport_response
+  end
   resources :regions
   resources :notifiers
   resources :ngos do
-    get :responce
+    get "responce/:resonse_id" => "food_responces#edit", :as => 'edit_food_responces'
+    get "update_responce/:resonse_id" => "food_responces#update", :as => 'update_food_responce'
   end
   resources :list_items
   resources :food_donors do

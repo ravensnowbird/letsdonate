@@ -1,1 +1,6 @@
-<%= link_to "click here", "" %>
+<%#= link_to "click here", ngo_edit_food_responces_url(@ngo,@request) %>
+
+
+<%= link_to 'Accept Have Transport', ngo_update_food_responce_url(@ngo,@request) + '?food_responce[status]=AcceptedWithTransport'%> |
+<%= link_to 'Accept Without Transport', ngo_update_food_responce_url(@ngo,@request) + '?food_responce[status]=AcceptedWithoutTransport' %> |
+<%= link_to 'Reject', ngo_update_food_responce_url(@ngo,@request) + '?food_responce[status]=Rejected'%> 
