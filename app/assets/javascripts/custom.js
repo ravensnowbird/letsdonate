@@ -1,7 +1,7 @@
 $(document).ready(function(){
   $('.add_location').change(function(){
   getLocation();
-}
+});
 });
   function getLocation() {
     if (navigator.geolocation) {
@@ -23,6 +23,15 @@ function add_region_fields(link, content) {
   $(link).prev().append(content.replace(/region_id/g, new_id));
   //initialize datetime picker dynamically when agenda_item fields are loaded
   $( ".delete_region" ).click(function() {
+    $(this).closest( "fieldset" ).remove();
+  });
+}
+
+function add_notifier_fields(link, content) {
+  var new_id = new Date().getTime();
+  $(link).prev().append(content.replace(/notifier_id/g, new_id));
+  //initialize datetime picker dynamically when agenda_item fields are loaded
+  $( ".delete_notifier" ).click(function() {
     $(this).closest( "fieldset" ).remove();
   });
 }

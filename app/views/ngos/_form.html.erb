@@ -44,8 +44,10 @@
                   <%= f.label :lang,"Langitude" %><br>
                   <%= f.text_field :lang,:name=>"langname",:id => "lang-check", :class=>"form-control", :placeholder=>"Enter langitude", :value=>"" %>
                 </div>
+                <div>
+                </div>
+                <%= add_notifier_fields(render "notifier_fields") %>
 
-              
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
