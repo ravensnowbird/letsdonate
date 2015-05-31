@@ -15,7 +15,10 @@ class ApplicationController < ActionController::Base
   end
 
   def force_redirect
-    redirect_to user_set_user_type_path(current_user) if current_user && !(current_user.has_role?) && request.params[:action] != "set_user_type"
+    redirect_to user_set_user_type_path(current_user) if current_user &&
+    !(current_user.has_role?) &&
+    request.params[:action] != "set_user_type" &&
+    !(devise_controller?)
   end
 
 end

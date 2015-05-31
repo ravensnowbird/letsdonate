@@ -1,5 +1,6 @@
 class TransportersController < ApplicationController
   before_action :set_transporter, only: [:show, :edit, :update, :destroy, :transporter_dashboard, :create_regions]
+  before_filter :authenticate_user!
 
   # GET /transporters
   # GET /transporters.json

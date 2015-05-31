@@ -1,5 +1,6 @@
 class NgosController < ApplicationController
   before_action :set_ngo, only: [:show, :edit, :update, :destroy, :create_regions]
+  before_filter :authenticate_user!
 
   # GET /ngos
   # GET /ngos.json

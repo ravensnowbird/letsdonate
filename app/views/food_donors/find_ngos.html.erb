@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
 <div class='container'>
@@ -26,9 +26,11 @@
 			</div>
 			<% end %>
 			<div class=" ">
+				<% unless @ngos.blank? %>
 				<div class="actions">
 					<%= submit_tag "Notify", :class=>"btn btn-action" %>
 				</div>
+				<% end %>
 			</div>
 			<% end %>
 		</div>
@@ -69,4 +71,4 @@
 		</div>
 	</div>
 </div>
-<br><br><br> 
+<br><br><br>
