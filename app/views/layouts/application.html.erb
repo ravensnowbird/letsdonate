@@ -41,7 +41,7 @@
 
 				<ul class="nav navbar-nav">
 					<li class="active" style="float:left;"><a href="/dashboard">Dashboard</a></li>
-					<li class="active" style="float:left;"><a href="<%=  %>">NGO</a></li>
+					<li class="active" style="float:left;"><a href="/ngo">NGO</a></li>
 					<% if current_user.blank? %>
 						<li class="active"><a href="<%= user_omniauth_authorize_path(provider: 'facebook') %>">Login</a></li>
 					<% end %>

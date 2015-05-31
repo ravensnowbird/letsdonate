@@ -1,5 +1,5 @@
 class FoodResponcesController < ApplicationController
-  before_action :set_food_responce, only: [:show, :destroy, :food_responce_transport_response]
+  before_action :set_food_responce, only: [:show, :destroy, :transport_response]
 
   # GET /food_responces
   # GET /food_responces.json
@@ -66,8 +66,9 @@ class FoodResponcesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def food_responce_transport_response
-    @food_responce.accepted_transport(current_user)
+  def transport_response
+    @food_responce.accepted_transport(current_user) if current_user
+    redirect_to '/', :notice => "Thank you"
   end
 
   private

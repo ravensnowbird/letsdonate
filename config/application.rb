@@ -29,12 +29,12 @@ module Letsdonate
     Rails.application.routes.default_url_options[:host] = 'Letsdonate.in'
 
     config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = { 
+    config.action_mailer.smtp_settings = {
       :address              => "smtp.sendgrid.net",
       :port                 => 587,
       :user_name            => 'FkT9kZ0i75',
       :password             => 'abZ00EkuZA'
       }
-      
+
   end
 end
