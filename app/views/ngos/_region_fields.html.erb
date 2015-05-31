@@ -1,0 +1,15 @@
+<fieldset>
+  <div class="form-group">
+    <%= label_tag :address %><br>
+    <%= text_field_tag 'ngo[region_id][address]', nil,{class: "form-control", placeholder: "Address"} %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :latitude %><br>
+    <%= text_field_tag 'ngo[region_id][lat]', nil,{class: "form-control", placeholder: "latitude"} %>
+  </div>
+  <div class="form-group">
+    <%= label_tag :longitude %><br>
+    <%= text_field_tag 'ngo[region_id][long]', nil,{class: "form-control", placeholder: "longitude"} %>
+  </div>
+  <a class="delete_region btn btn-danger btn-sm"><i class="fa fa-minus"></i>&nbsp;&nbsp;Delete Region</a></br></br>
+  <fieldset>

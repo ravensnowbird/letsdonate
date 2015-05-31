@@ -1,5 +1,5 @@
 class FoodResponcesController < ApplicationController
-  before_action :set_food_responce, only: [:show, :edit, :update, :destroy]
+  before_action :set_food_responce, only: [:show, :destroy, :food_responce_transport_response]
 
   # GET /food_responces
   # GET /food_responces.json
@@ -19,6 +19,8 @@ class FoodResponcesController < ApplicationController
 
   # GET /food_responces/1/edit
   def edit
+    @ngo = Ngo.find(params[:ngo_id])
+    @food_responce =  @ngo.food_responces.find(params[:resonse_id])
   end
 
   # POST /food_responces
@@ -40,9 +42,13 @@ class FoodResponcesController < ApplicationController
   # PATCH/PUT /food_responces/1
   # PATCH/PUT /food_responces/1.json
   def update
+    @ngo = Ngo.find(params[:ngo_id])
+    @food_responce =  @ngo.food_responces.find(params[:resonse_id])
     respond_to do |format|
       if @food_responce.update(food_responce_params)
-        format.html { redirect_to @food_responce, notice: 'Food responce was successfully updated.' }
+        @food_responce.after_update_action
+        #format.html { redirect_to @food_responce, notice: 'Food responce was successfully updated.' }
+
         format.json { render :show, status: :ok, location: @food_responce }
       else
         format.html { render :edit }
@@ -60,11 +66,14 @@ class FoodResponcesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def food_responce_transport_response
+    @food_responce.accepted_transport(current_user)
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_food_responce
-      @food_responce = FoodResponce.find(params[:id])
+      @food_responce = FoodResponce.find(params[:id] || params[:food_responce_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

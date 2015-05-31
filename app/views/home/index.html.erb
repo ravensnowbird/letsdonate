@@ -23,6 +23,9 @@
             <li class="active"><a href="<%= new_food_donor_path %>">Donate</a></li>
             <li class="active"><a href="<%= new_ngo_path %>">Register your NGO</a></li>
             <li class="active"><a href="<%= new_transporter_path %>">Become a food transporter</a></li>
+            <% if current_user.blank? %>
+              <li class="active"><a href="<%= user_omniauth_authorize_path(provider: 'facebook') %>">Login</a></li>
+            <% end %>
             <% if current_user.present? %>
             <li class="active"><%= link_to "logout",destroy_user_session_path, :method => :delete %></li>
             <% end %>
