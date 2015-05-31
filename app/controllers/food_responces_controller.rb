@@ -46,8 +46,8 @@ class FoodResponcesController < ApplicationController
     @food_responce =  @ngo.food_responces.find(params[:resonse_id])
     respond_to do |format|
       if @food_responce.update(food_responce_params)
-        @food_responce.after_update_action
-        #format.html { redirect_to @food_responce, notice: 'Food responce was successfully updated.' }
+        #@food_responce.after_update_action
+        format.html { redirect_to '/', notice: 'Food responce was successfully updated.' }
 
         format.json { render :show, status: :ok, location: @food_responce }
       else

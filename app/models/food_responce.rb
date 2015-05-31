@@ -6,10 +6,10 @@ class FoodResponce < ActiveRecord::Base
   include RegionHelper
 
   def after_update_action
-  	if status == AcceptedWithTransport
+  	if status == "AcceptedWithTransport"
   		send_accept_information_to_donor
   		self.update(:status => "complete")
-  	elsif status == AcceptedWithoutTransport
+  	elsif status == "AcceptedWithoutTransport"
   		send_transport_request
   		self.update(:status => 'TranseportRequestSended')
   	end
@@ -30,5 +30,3 @@ class FoodResponce < ActiveRecord::Base
   end
 
 end
-
-

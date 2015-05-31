@@ -1,3 +1,4 @@
+<button onclick="getLocation();" class="btn btn-xs" style="  float: right;  margin-right: 80px;  margin-top: 7px;">Track my location</button>
 <%= form_for(@food_donor) do |f| %>
   <% if @food_donor.errors.any? %>
     <div id="error_explanation">
@@ -12,53 +13,54 @@
   <% end %>
 
  <div class="row">
-  <div class="col-sm-4">
-    <div class="input-group">
+  <div class="col-sm-6">
+    <div class="form-group">
       <%= f.label :name %><br>
-     <%= f.text_field :name %>
+     <%= f.text_field :name, :class => 'form-control' %>
     </div>
-    <div class="field">
+    <div class="form-group">
     <%= f.label :email %><br>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, :class => 'form-control'  %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone_number %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, :class => 'form-control'  %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_area :address, :class => 'add_location' %>
+    <%= f.text_area :address, :class => 'add_location form-control'   %>
   </div>
 
-  
-  </div>
-  <div class="col-sm-4">
-  
-    
-      <div class="field">
+
+
+      <div class="form-group">
         <%= f.label :available_till %><br>
-        <%= f.text_field :available_till %>
+        <%= f.text_field :available_till, :class => 'form-control'  %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :sufficient_for %><br>
-      <%= f.text_field :sufficient_for %>
-    </div>
-    
-    
-    <div class="field">
-        <%= f.label :food_details %><br>
-        <%= f.text_field :food_details %>
+      <%= f.text_field :sufficient_for, :class => 'form-control'  %>
     </div>
 
-    <div class="field">
-      <%= f.check_box :has_transport %>
+
+    <div class="form-group">
+        <%= f.label :food_details %><br>
+        <%= f.text_area :food_details, :class => 'form-control'  %>
+    </div>
+
+    <div class="form-group">
+      <%= f.check_box :has_transport  %>
       <%= f.label :has_transport %>
     </div>
   </div>
+  <div class="col-md-6">
+    <div id='map' style='  height: 400px;  width:100%;  '></div>
+    <script></script>
+  </div>
 </div>
 
-<%= f.hidden_field :lat, :id => 'region_lat' %>
-<%= f.hidden_field :lang, :id => 'region_long' %>
+<%= f.hidden_field :lat, :id => 'lat' %>
+<%= f.hidden_field :lang, :id => 'lng' %>
 
 <div class="row">
 <div class="actions">
@@ -66,8 +68,8 @@
     </div>
     </div>
 
-  
-  
-  
-  
+
+
+
+
 <% end %>
