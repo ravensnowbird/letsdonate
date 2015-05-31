@@ -66,10 +66,8 @@ class NgosController < ApplicationController
   end
 
   def create_regions
-    regions = []
-    params[:ngo].collect{|k,v| regions << {address: v["address"], lat: v["lat"], long: v["long"]}}
-    @ngo.add_regions(regions)
-    redirect_to :back, :notice => "Regions added successfully"
+    @ngo.add_regions([{address: params["address"], lat: params["lat"], long: params["lng"]}])
+    redirect_to :back, :notice => "Region added successfully"
   end
 
   private
