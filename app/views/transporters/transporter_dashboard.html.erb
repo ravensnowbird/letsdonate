@@ -17,6 +17,7 @@
     <h2>Your regions</h2>
     <%# @transporter.suman %>
     <% if @transporter_regions.present? %>
+      <div id="regions_table">
       <table class="table">
         <thead>
           <tr>
@@ -29,15 +30,16 @@
 
         <tbody>
           <% @transporter_regions.each do |region| %>
-          <tr>
+          <tr id=<%= 'region_' + region["id"] %>>
             <td><%= region["address"] %></td>
             <td><%= region['lat'] %></td>
             <td><%= region['long'] %></td>
-            <td><%= link_to "Delete",transporter_region_path(@transporter, region["id"]), method: 'delete', class: 'btn btn-xs btn-danger' %></td>
+            <td><%= link_to "Delete",transporter_region_path(@transporter, region["id"]), method: 'delete', class: 'btn btn-xs btn-danger', remote: 'true' %></td>
           </tr>
           <% end %>
         </tbody>
       </table>
+    </div>
     <% else %>
       <h3>No regions added yet. </h3>
     <% end %>
