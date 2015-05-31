@@ -1,8 +1,13 @@
 module RegionHelper
 	def regions
-		all = Region.where({:regionfor => self.class.name, :regionforid => self.id.to_s})
+		begin
+			Region.where({:regionfor => self.class.name, :regionforid => self.id.to_s})
+		rescue
+			[]
+		end
 	end
 	def add_regions(regions)
+		begin
 		regions.each do |region|
 			region[:regionfor] = self.class.name
 			region[:regionforid] = self.id.to_s
@@ -11,11 +16,19 @@ module RegionHelper
 			r = Region.new_from_hash(region)
 			r.save
 		end
+	rescue
+	end
 	end
 	def show_region(id)
-		Region.find(id)
+		begin
+			Region.find(id)
+		end
+		rescue
+			Region.new
+		end
 	end
 	def update_region(id,values = {})
+		begin
 		region = show_region(id)
 		values.each do |key,val|
 			if [:lat,:lang].include? key
@@ -24,11 +37,17 @@ module RegionHelper
 			end
 		end
 		region.update(region)
+	rescue
+	end
 	end
 
 	def destroy_region(id)
+		begin
 		region = show_region(id)
 		region.destroy
+		end
+		rescue
+	end
 	end
 
 end
