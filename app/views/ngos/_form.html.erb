@@ -1,5 +1,4 @@
 
-
 <!--             FORM                 -->
 
 <div class="container">
@@ -16,7 +15,7 @@
 
 
 
-                <%= form_for(@ngo) do |f| %>
+                <%= form_for(@ngo,:id=>"check-ngo-form") do |f| %>
                 <% if @ngo.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@ngo.errors.count, "error") %> prohibited this ngo from being saved:</h2>
@@ -31,20 +30,23 @@
 
                 <div class="form-group">
                   <%= f.label :name, "NGO Name" %><br>
-                  <%= f.text_field :name, :class=>"form-control", :placeholder=>"Username", :value=>"" %>
+                  <%= f.text_field :name, :class=>"form-control", :placeholder=>"NGO name", :value=>"" %>
                 </div>
                 <div class="form-group">
                   <%= f.label :address %><br>
-                  <%= f.text_field :address, :class=>"form-control", :placeholder=>"address", :value=>"" %>
+                  <%= f.text_field :address, :class=>"form-control", :placeholder=>"Enter address", :value=>"" %>
                 </div>
                 <div class="form-group" style="display:none;">
-                  <%= f.label :lat %><br>
-                  <%= f.text_field :lat, :class=>"form-control", :placeholder=>"lat", :value=>"" %>
+                  <%= f.label :lat, "Latitude" %><br>
+                  <%= f.text_field :lat,:name=>"latname",:id =>"lat-check", :class=>"form-control", :placeholder=>"Enter latitude", :value=>"" %>
                 </div>
                 <div class="form-group" style="display:none;">
-                  <%= f.label :lang %><br>
-                  <%= f.text_field :lang, :class=>"form-control", :placeholder=>"lang", :value=>"" %>
+                  <%= f.label :lang,"Langitude" %><br>
+                  <%= f.text_field :lang,:name=>"langname",:id => "lang-check", :class=>"form-control", :placeholder=>"Enter langitude", :value=>"" %>
                 </div>
+                <div>
+                </div>
+                <%= add_notifier_fields(render "notifier_fields") %>
 
                 <div class="form-group">
                   <div class="row">

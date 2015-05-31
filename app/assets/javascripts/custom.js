@@ -26,3 +26,12 @@ function add_region_fields(link, content) {
     $(this).closest( "fieldset" ).remove();
   });
 }
+
+function add_notifier_fields(link, content) {
+  var new_id = new Date().getTime();
+  $(link).prev().append(content.replace(/notifier_id/g, new_id));
+  //initialize datetime picker dynamically when agenda_item fields are loaded
+  $( ".delete_notifier" ).click(function() {
+    $(this).closest( "fieldset" ).remove();
+  });
+}
