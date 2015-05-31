@@ -21,7 +21,7 @@ class FoodResponce < ActiveRecord::Base
 
   def send_transport_request
   	Transport.all.each do |taransport|
-  		NgoNotifiers.send_transport_request(taransport)
+  		NgoNotifiers.send_transport_request(self,taransport)
   	end
   end
   def accepted_transport(transport)

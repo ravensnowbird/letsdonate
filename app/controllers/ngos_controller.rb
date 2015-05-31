@@ -33,7 +33,7 @@ class NgosController < ApplicationController
         @ngo.create_notifiers(params[:ngo])
         # format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
         # format.json { render :show, status: :created, location: @ngo }
-        format.html { redirect_to user_dashboard_path(:ngo_id => @ngo, :user_id => current_user.id), notice: 'Ngo was successfully created.' }
+        format.html { redirect_to ngo_path(@ngo), notice: 'Ngo was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @ngo.errors, status: :unprocessable_entity }

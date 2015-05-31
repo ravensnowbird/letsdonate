@@ -17,9 +17,9 @@
               <h2> <%= @ngo.name %> </h2>
               <p><strong>About: </strong>  </p>
               <p><strong>Address: </strong> <%= @ngo.address %> </p>
-              <p><strong>Latitude: </strong> <%= @ngo.lat %> </p>
+              <!-- <p><strong>Latitude: </strong> <%= @ngo.lat %> </p>
                 <p><strong>Longitude: </strong> <%= @ngo.lang %>
-              </p>
+              </p> -->
             </div><!--/col-->
             <div class="clearfix"></div>
             <div class="col-xs-12 col-sm-4">
@@ -40,29 +40,39 @@
 
 
   </div><!--/row-->
-</div><!--/container-->
 
-
-<div class="container">
-  <div class="row">
-    <div class="[ col-sm-12 col-md-4 ]">
-      <% @notifiers.each do |n| %>
-      <div class="[ info-card ]">
-        <div class="[ info-card-details ] animate">
-          <div class="[ info-card-header ]">
-            <h1> <%= n.name %> </h1>
-          </div>
-          <div class="[ info-card-detail ]">
-            <!-- Description -->
-            Email  : <%= n.email %><br/>
-            Mobile : <%= n.phone %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+        <div class="well profile">
+          <h1>Notifiers</h1>
+          <div class="col-sm-12">
+            <% if @notifiers.count > 1 %>
+            <% @notifiers.each do |n| %>
+            <div class="col-xs-12 col-sm-8">
+              <h2><%= n.name %></h2>
+              <p><strong>Email: </strong> <%= n.email %> </p>
+              <p><strong>Mobile: </strong> <%= n.phone %> </p>
+            </div>
+            <% end %>
+            <% end %>
           </div>
         </div>
       </div>
-      <% end %>
     </div>
   </div>
-</div>
+
+</div><!--/container-->
+
+
+
+
+
+
+<!-- -->
+
+<!-- -->
 
 
 <br/>
