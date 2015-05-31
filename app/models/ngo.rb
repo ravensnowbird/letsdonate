@@ -20,7 +20,7 @@ class Ngo < ActiveRecord::Base
 	private
 
 	def create_notifier
-		self.notifiers.create()
+		self.notifiers.create(:name => self.name)
 	end
 
 end
