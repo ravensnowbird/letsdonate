@@ -60,7 +60,7 @@
 		</h1>
 	</div>
 
-	<% unless current_user.has_role? %>
+	<% unless current_user && current_user.has_role? %>
 
 	<nav class="navbar navbar-default navbar-sticky">
 		<div class="container">
