@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 
   def has_role?
-    !(Transporter.where(:email => self.email).blank? || Notifier.where(:email => self.email).blank?)
+    !(Transporter.where(:email => self.email).blank? && Notifier.where(:email => self.email).blank?)
   end
 
 end
