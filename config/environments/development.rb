@@ -40,5 +40,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.perform_deliveries = true
-  config.action_controller.default_url_options = {:host => "Letsdonate.in"}
+  config.action_controller.default_url_options = {:host => "localhost"}
 end
