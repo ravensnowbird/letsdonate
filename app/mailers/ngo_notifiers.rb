@@ -14,7 +14,8 @@ class NgoNotifiers < ActionMailer::Base
     @to = food_response.food_donor.email
     mail(to: @to, subject: @subject).deliver if @to
   end
-  def send_transport_request(transport)
+  def send_transport_request(food_response,transport)
+    @food_response = food_response
   	@transport = transport
 	subject = "Transport request"
     @food_response = food_response #food_response.food_donor.email
