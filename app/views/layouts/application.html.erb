@@ -26,6 +26,12 @@
 
 <body class="home">
   <%= csrf_meta_tags %>
+	<% if flash[:notice] -%>
+		<div class="alert alert-info">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+			<%=h flash[:notice] %>
+		</div>
+	<% end -%>
 	<%= yield %>
 <footer id="footer">
 	<div class="container">
