@@ -1,16 +1,71 @@
-<h1>
-Maps
-</h1>
-<%= form_tag(food_donor_notification_path(@food_donor)) do %>
-	<% @ngos.each do |ngo| %>
-		<div class="field">
-      		<%= check_box_tag 'ngos[]', ngo.id %>
-      		<%= ngo.name %>
-    	</div>
-  	<% end %>
-  	<div class="row">
-<div class="actions">
-      <%= submit_tag "Notify" %>
-    </div>
-    </div>
-<% end %>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+<div class='container'>
+	<div class="row section topspace" style="margin-bottom: 40px;">
+		<div class="panel panel-cta">
+			<div class="panel-body">
+				<div class="col-lg-8">
+					<h5 style="  margin-top: 10px;">Currently there are <b><%= @ngos.count %></b> around you who can recieve</h5>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<%= form_tag(food_donor_notification_path(@food_donor)) do %>
+			<% @ngos.each do |ngo| %>
+			<div class="form-group">
+				<div class="panel panel-default">
+					<div class="panel-body"><h5><%= check_box_tag 'ngos[]', ngo.id %>&nbsp;&nbsp;&nbsp;<%= ngo.name %></h5>
+						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= ngo.address %><br>
+
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<div class=" ">
+				<div class="actions">
+					<%= submit_tag "Notify", :class=>"btn btn-action" %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+		<div class='col-md-6'>
+			<div id='map' style='  height: 400px;  width:100%;  '></div>
+			<script>
+			var results ;
+			<% @ngos.each do |n| %>
+			<% n.regions.each do |r| %>
+			results.push({:name => ngo.name, :lat => r.lat, :lon => r.lang})
+			<% end %>
+			<% end %>
+			var markerGroup = new L.MarkerClusterGroup().addTo(map);
+			for (var i = 0; i < results.length; i++) {
+				var marker = results[i];
+				if (marker.lat && marker.lon) {
+					drawMarker(marker.lat, marker.lon, (marker.tags && marker.tags.name ? marker.tags.name : ''));
+				}
+			}
+			// Move view to fit markers
+			if (markerGroup.getLayers().length) {
+				map.fitBounds(markerGroup.getBounds());
+			}
+			function drawMarker(lat, lon, label) {
+				// Set marker, set custom marker colour
+				var marker = L.marker([lat, lon], {
+					icon: L.mapbox.marker.icon({
+						'marker-color': 'ff8888'
+					})
+				});
+				if (label) {
+					marker.bindPopup(label);
+				}
+				// Add to marker group layer
+				markerGroup.addLayer(marker);
+			}
+			</script>
+		</div>
+	</div>
+</div>
+<br><br><br>
