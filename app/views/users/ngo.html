@@ -1,37 +1,61 @@
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
 <div class='container'>
-  <h1>Dashboard</h1>
-  <div class='col-lg-6'>
-    <h3>Add regions in which you are available </h3>
+  <div class="row section topspace" style="margin-bottom: 40px;">
+    <div class="panel panel-cta">
+      <div class="panel-body">
+        <div class="col-lg-8">
+          <h5 style="  margin-top: 10px;">Currently you're in <b><%= @ngo.regions.count %></b> regions to help</h5>
+        </div>
+        <div class="col-lg-4 text-right">
+          <button onclick='initMap();' type="button" class="btn btn-primary btn-download btn-lg" data-toggle="modal" data-target="#mapModal">Add Region</button>
+        </div>
+        <div class="modal fade " id="mapModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
-    <%#= link_to "Add Regions", new_transporter_region_path(@transporter), class: "btn-default btn"%>
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 style="display: inline-block;" class="modal-title" id="myLargeModalLabel">Add Region<a class="anchorjs-link" href="#myLargeModalLabel"><span class="anchorjs-icon"></span></a></h4>
 
-    <% if @transporter.present? %>
-      <%= form_tag(transporter_create_regions_path(@transporter), {:method => :post}) do %>
-      <div>
+                <button onclick="getLocation();" class="btn btn-xs" style="  float: right;  margin-right: 80px;  margin-top: 7px;">Track my location</button>
+              </div>
+              <div class="modal-body"  style="height: 600px;">
+                <div id='map' style='  height: 400px;  width:100%;  '></div>
+                <%= form_tag(ngo_create_regions_path(@ngo), {:method => :post}) do %>
+                <div class="form-group">
+                  <textarea name="address" rows="5" cols="10" class="form-control" placeholder="Type your address"></textarea>
+                </div>
+                <input type="hidden" name="lat" id="lat" />
+                <input type="hidden" name="lng" id="lng" />
+                <p class="text-center"><button type="submit" class="btn btn-action">Add</button></p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <%= add_region_fields(render "transporters/region_fields") %>
-      <%= submit_tag "Submit",class: 'btn btn-success btn-sm' %>
-      <% end %>
-    <% elsif @ngo.present? %>
-      <%= form_tag(ngo_create_regions_path(@ngo), {:method => :post}) do %>
-      <div>
-      </div>
-      <%= add_region_fields(render "ngos/region_fields") %>
-      <%= submit_tag "Submit",class: 'btn btn-success btn-sm' %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
+
   <div class='col-lg-6'>
-    <h2>Your regions</h2>
-    <%# @transporter.suman %>
+
+
+    <!-- Large modal -->
+
+
+
+
+
+  </div>
+  <div class='col-12'>
+    <h2 class="section-title"><span>Your Regions</span></h2>
     <% if @added_regions.present? %>
     <div id="regions_table">
       <table class="table">
         <thead>
           <tr>
             <th>Address</th>
-            <th>Latitude</th>
-            <th>Longitude</th>
             <th></th>
           </tr>
         </thead>
@@ -40,14 +64,7 @@
           <% @added_regions.each do |region| %>
           <tr id=<%= 'region_' + region["id"] %>>
             <td><%= region["address"] %></td>
-            <td><%= region['lat'] %></td>
-            <td><%= region['long'] %></td>
-            <% if @transporter.present? %>
-              <td><%= link_to "Delete",transporter_region_path(@transporter, region["id"]), method: 'delete', class: 'btn btn-xs btn-danger', remote: 'true' %></td>
-            <% elsif @ngo.present? %>
-              <td><%= link_to "Delete",ngo_region_path(@ngo, region["id"]), method: 'delete', class: 'btn btn-xs btn-danger', remote: 'true' %></td>
-            <% end %>
-
+            <td style="width: 160px;"><%= link_to "Remove",ngo_region_path(@ngo, region["id"]), method: 'delete', class: 'btn btn-action', remote: 'true' %></td>
           </tr>
           <% end %>
         </tbody>
