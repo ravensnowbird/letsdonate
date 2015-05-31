@@ -21,14 +21,12 @@ module RegionHelper
 	end
 	def show_region(id)
 		begin
-			Region.find(id)
-		end
-		rescue
-			Region.new
-		end
+		Region.find(id)
+	
+rescue
+end
 	end
 	def update_region(id,values = {})
-		begin
 		region = show_region(id)
 		values.each do |key,val|
 			if [:lat,:lang].include? key
@@ -37,17 +35,11 @@ module RegionHelper
 			end
 		end
 		region.update(region)
-	rescue
-	end
 	end
 
 	def destroy_region(id)
-		begin
 		region = show_region(id)
 		region.destroy
-		end
-		rescue
-	end
 	end
 
 end
