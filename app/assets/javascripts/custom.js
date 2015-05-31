@@ -25,6 +25,8 @@ $(document).ready(function(){
       map.setView(new L.LatLng(position.coords.latitude,position.coords.longitude),12);
       marker.setLatLng(new L.LatLng(position.coords.latitude,position.coords.longitude));
       circle.setLatLng(new L.LatLng(position.coords.latitude,position.coords.longitude));
+      $("#lat").val(position.coords.latitude);
+      $("#lng").val(position.coords.longitude);
     }
   }
 
@@ -75,9 +77,13 @@ function initMap() {
 
   marker.bindPopup('Set your location');
   marker.addTo(map);
+  $("#lat").val(17.42239077987073);
+  $("#lng").val(78.50212097167969);
 
   marker.on('drag', function(e) {
-    circle.setLatLng(e.target.getLatLng())
+    circle.setLatLng(e.target.getLatLng());
+    $("#lat").val(e.target.getLatLng().lat);
+    $("#lng").val(e.target.getLatLng().lng);
   });
 }, 1000);
 }

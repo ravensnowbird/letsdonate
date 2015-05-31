@@ -70,10 +70,8 @@ class TransportersController < ApplicationController
   end
 
   def create_regions
-    regions = []
-    params[:transporter].collect{|k,v| regions << {address: v["address"], lat: v["lat"], long: v["long"]}}
-    @transporter.add_regions(regions)
-    redirect_to :back, :notice => "Regions added successfully"
+    @transporter.add_regions([{address: params["address"], lat: params["lat"], long: params["lng"]}])
+    redirect_to :back, :notice => "Region added successfully"
   end
 
   private
