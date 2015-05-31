@@ -13,13 +13,14 @@
         </ul>
       </div>
     <% end %>
+    <%= f.hidden_field :user_id, value: current_user.present? ? current_user.id : nil %>
 
     <div class="form-group">
       <div class='col-sm-2'>
         <%= f.label :name %>
       </div>
       <div class='col-sm-10'>
-        <%= f.text_field :name, class: "form-control", value: current_user.name %>
+        <%= f.text_field :name, class: "form-control", value: current_user.present? ? current_user.name : nil %>
       </div>
     </div>
 
@@ -37,7 +38,7 @@
       <%= f.label :email %>
       </div>
       <div class='col-sm-10'>
-      <%= f.text_field :email, class: "form-control", value: current_user.email %>
+      <%= f.text_field :email, class: "form-control", value: current_user.present? ? current_user.email : nil %>
       </div>
     </div>
 

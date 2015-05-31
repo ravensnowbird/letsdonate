@@ -54,10 +54,17 @@ class RegionsController < ApplicationController
   # DELETE /regions/1
   # DELETE /regions/1.json
   def destroy
-    @region.destroy
+    if params["transporter_id"].present?
+      @transporter = Transporter.find(params["transporter_id"]) if params["transporter_id"].present?
+      p "destroying region for transporter"
+      p @transporter.destroy_region(params["id"])
+    else
+      @region.destroy
+    end
     respond_to do |format|
       format.html { redirect_to regions_url, notice: 'Region was successfully destroyed.' }
-      format.json { head :no_content }
+      #format.json { head :no_content }
+      format.js
     end
   end
 

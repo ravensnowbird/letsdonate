@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   #devise_for :users
   resources :transporters do
     get "transporter_dashboard"
+    post "create_regions"
+    resources :regions
   end
   resources :food_responces do
     get :transport_response
@@ -20,6 +22,9 @@ Rails.application.routes.draw do
   resources :ngos do
     get "responce/:resonse_id" => "food_responces#edit", :as => 'edit_food_responces'
     get "update_responce/:resonse_id" => "food_responces#update", :as => 'update_food_responce'
+    get :responce
+    post 'create_regions'
+    resources :regions
   end
   resources :list_items
   resources :food_donors do
@@ -29,6 +34,8 @@ Rails.application.routes.draw do
 
   resources :users do
     get 'set_user_type'
+    get 'check_user_type'
+    get 'dashboard'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
