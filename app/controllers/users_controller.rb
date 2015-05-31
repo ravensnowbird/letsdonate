@@ -20,12 +20,13 @@ class UsersController < ApplicationController
 
   def dashboard
     @region = Region.new
-    if params[:ngo_id].present?
-      @ngo = Ngo.find(params[:ngo_id])
-      @added_regions = @ngo.regions
-    elsif params[:transporter_id].present?
-      @transporter = Transporter.find(params[:transporter_id])
-      @added_regions = @transporter.regions
-    end
+    @transporter = Transporter.where(:email => current_user.email).first
+    @added_regions = @transporter.regions
+  end
+
+  def ngo
+    @region = Region.new
+    @ngo = Notifier.where(:email => current_user.email).collect{|x| x.ngo}.first
+    @added_regions = @ngo.regions
   end
 end

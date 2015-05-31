@@ -308,8 +308,11 @@ img {
   -o-transition-duration: 0.2s;
   transition-duration: 0.2s;
   border: 0 none;
-  padding: 12px 35px;
+
   text-shadow: 0 1px 0px #82B371;
+}
+.btn.btn-action {
+  padding: 12px 35px;
 }
 .btn-primary {
   color: #fff;

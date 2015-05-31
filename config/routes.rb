@@ -31,11 +31,12 @@ Rails.application.routes.draw do
     get :find_ngos
     post :notification
   end
-
+  get 'dashboard' => "users#dashboard"
+  get 'ngo' => "users#ngo"
   resources :users do
     get 'set_user_type'
     get 'check_user_type'
-    get 'dashboard'
+
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
