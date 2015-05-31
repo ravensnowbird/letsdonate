@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" style="margin: 60px 0px;">
   <div class="row">
-    <div class='col-lg-6'>
+    <div class='col-lg-6 col-md-offset-3'>
   <%= form_for(@transporter) do |f| %>
     <% if @transporter.errors.any? %>
       <div id="error_explanation">
@@ -15,35 +15,38 @@
     <% end %>
     <%= f.hidden_field :user_id, value: current_user.present? ? current_user.id : nil %>
 
+
+
     <div class="form-group">
-      <div class='col-sm-2'>
-        <%= f.label :name %>
+      <div class=''>
+        <%= f.label :name, :style=> "  margin-bottom: 10px; text-transform: uppercase;" %>
       </div>
-      <div class='col-sm-10'>
+      <div class=''>
         <%= f.text_field :name, class: "form-control", value: current_user.present? ? current_user.name : nil %>
       </div>
     </div>
 
     <div class="form-group">
-      <div class='col-sm-2'>
-      <%= f.label :phone %>
+      <div class=''>
+      <%= f.label :phone, :style=> "  margin-bottom: 10px; text-transform: uppercase;" %>
       </div>
-      <div class='col-sm-10'>
+      <div class=''>
       <%= f.text_field :phone, class: "form-control" %>
       </div>
     </div>
 
-    <div class="form-group">
-      <div class='col-sm-2'>
+    <div class="form-group" style="display: none;">
+      <div class=''>
       <%= f.label :email %>
       </div>
-      <div class='col-sm-10'>
+      <div class=''>
       <%= f.text_field :email, class: "form-control", value: current_user.present? ? current_user.email : nil %>
       </div>
     </div>
+    <br>
 
-    <div class="actions">
-      <%= f.submit %>
+    <div class="actions " style="text-align: center;">
+      <%= f.submit "Submit", :class => "btn btn-action btn-block" %>
     </div>
   <% end %>
 </div>

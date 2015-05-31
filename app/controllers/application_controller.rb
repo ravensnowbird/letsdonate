@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     #hey_wait
-    user_check_user_type_path(resource)
+    if resource.has_role?
+      user_check_user_type_path(resource)
+    else
+      users_dashboard_path(resource)
+    end
   end
 
 end

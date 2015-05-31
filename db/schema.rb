@@ -50,12 +50,6 @@ ActiveRecord::Schema.define(version: 20150530201136) do
   add_index "food_responces", ["food_donor_id"], name: "index_food_responces_on_food_donor_id"
   add_index "food_responces", ["ngo_id"], name: "index_food_responces_on_ngo_id"
 
-  create_table "homes", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "list_items", force: :cascade do |t|
     t.string   "name"
     t.string   "quantity"
@@ -87,18 +81,6 @@ ActiveRecord::Schema.define(version: 20150530201136) do
 
   add_index "notifiers", ["ngo_id"], name: "index_notifiers_on_ngo_id"
 
-  create_table "providers", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "provider_name"
-    t.string   "uid"
-    t.string   "token"
-    t.string   "public_url"
-    t.string   "auth_secret"
-    t.string   "refresh_token"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "regions", force: :cascade do |t|
     t.string   "address"
     t.string   "lat"
@@ -107,12 +89,6 @@ ActiveRecord::Schema.define(version: 20150530201136) do
     t.integer  "region_for_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "transporters", force: :cascade do |t|

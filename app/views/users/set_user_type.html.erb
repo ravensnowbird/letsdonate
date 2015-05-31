@@ -1,14 +1,12 @@
-<h1>Users#set_user_type</h1>
-<div class="row form-group">
-  <div class="col-md-2">
-    <!-- <div class="page-header"> -->
-      <label>Register as </label>
-    <!-- </div> -->
-  </div>
-  <div class="col-md-4">
-    <!-- <button type="button" class="btn btn-default navbar-btn">Transporter</button> -->
-    <%= link_to "Transporter", new_transporter_path, class: "btn btn-success btn-round" %>&nbsp;&nbsp;&nbsp;
-    <%= link_to "NGO", new_ngo_path, class: "btn btn-success btn-round" %>
-    <!-- <button type="button" class="btn btn-default navbar-btn">NGO</button> -->
+<div class="row section topspace" style="margin-bottom: 40px;">
+  <div class="panel panel-cta"><div class="panel-body">
+    <div class="col-lg-5">
+       <h5 style='  margin-top: 10px;'><b>Choose</b> your role to control food wastage<h5>
+      </div>
+      <div class="col-lg-7 text-right">
+        <%= link_to "Become a transporter", new_transporter_path, class: "btn btn-primary btn-download btn-lg" %>&nbsp;&nbsp;&nbsp;
+        <%= link_to "Register an NGO", new_ngo_path, class: "btn btn-primary btn-download btn-lg" %>
+      </div>
+    </div>
   </div>
 </div>
