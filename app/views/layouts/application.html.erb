@@ -55,7 +55,7 @@
 	</nav>
 	<div id="head" <%= raw 'style="padding: 5px;"' if request.params[:action].to_s != "set_user_type" %>>
 		<h1 id="logo" class="text-center">
-			<%= image_tag "logo.png", :style => "background-color: rgba(255, 255, 255, 0.54);" %><br>
+			<a href="/"><%= image_tag "logo.png", :style => "background-color: rgba(255, 255, 255, 0.54);" %></a><br>
 			<span class="tagline" style="font-size: 2rem;">Waste Less. Feed More. </span>
 		</h1>
 	</div>
