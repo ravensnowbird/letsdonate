@@ -9,18 +9,14 @@ class UsersController < ApplicationController
   def check_user_type
     @transporter = Transporter.where(:user_id => current_user.id, :email => current_user.email).first
     @ngo = Ngo.find_by(:user_id => current_user.id)
-    if @transporter.present?
-      redirect_to user_dashboard_path(:transporter_id => @transporter)
-    elsif @ngo.present?
-      redirect_to user_dashboard_path(:ngo_id => @ngo)
-    else
-      redirect_to user_set_user_type_path, notice: "You haven't yet completed registration."
+    if current_user.has_role?
+      redirect_to user_dashboard_path 
     end
   end
 
   def dashboard
     @region = Region.new
-    @transporter = Transporter.where(:email => current_user.email).first
+    @transporter = Transporter.where(:email => current_user.email).first 
     @added_regions = @transporter.regions
   end
 
