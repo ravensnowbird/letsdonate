@@ -6,10 +6,10 @@
     <div class="col-md-8">
       <h3>NGO Details</h3>
     </div>
-      
+
   </div>
   <div class="row">
-    <div class="col-md-8 col-xs-10">
+    <div class="col-md-12 col-xs-10">
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="row">
@@ -41,6 +41,30 @@
 
   </div><!--/row-->
 </div><!--/container-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="[ col-sm-12 col-md-4 ]">
+      <% @notifiers.each do |n| %>
+      <div class="[ info-card ]">
+        <div class="[ info-card-details ] animate">
+          <div class="[ info-card-header ]">
+            <h1> <%= n.name %> </h1>
+          </div>
+          <div class="[ info-card-detail ]">
+            <!-- Description -->
+            Email  : <%= n.email %><br/>
+            Mobile : <%= n.phone %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 <br/>
 <br/>
 <br/>

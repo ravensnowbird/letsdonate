@@ -10,7 +10,7 @@ class NgosController < ApplicationController
   # GET /ngos/1
   # GET /ngos/1.json
   def show
-    @notifier = @ngo.notifiers.where(:id => current_user.id).first
+    @notifiers = @ngo.notifiers
   end
 
   # GET /ngos/new
@@ -30,6 +30,7 @@ class NgosController < ApplicationController
 
     respond_to do |format|
       if @ngo.save
+        @ngo.create_notifiers(params[:ngo])
         format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
         format.json { render :show, status: :created, location: @ngo }
       else
@@ -71,6 +72,6 @@ class NgosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ngo_params
-      params.require(:ngo).permit(:name, :address, :lat, :lang)
+      params.require(:ngo).permit(:name, :address, :lat, :lang) #:notifier =>[:name,:phone,:email]
     end
 end

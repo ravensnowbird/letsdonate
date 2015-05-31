@@ -28,7 +28,7 @@ function add_region_fields(link, content) {
 }
 
 function add_notifier_fields(link, content) {
-  var new_id = new Date().getTime();
+  var new_id = "notify_"+Math.random();
   $(link).prev().append(content.replace(/notifier_id/g, new_id));
   //initialize datetime picker dynamically when agenda_item fields are loaded
   $( ".delete_notifier" ).click(function() {
