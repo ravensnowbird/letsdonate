@@ -1,5 +1,5 @@
 class NgosController < ApplicationController
-  before_action :set_ngo, only: [:show, :edit, :update, :destroy]
+  before_action :set_ngo, only: [:show, :edit, :update, :destroy, :create_regions]
 
   # GET /ngos
   # GET /ngos.json
@@ -63,10 +63,17 @@ class NgosController < ApplicationController
     end
   end
 
+  def create_regions
+    regions = []
+    params[:ngo].collect{|k,v| regions << {address: v["address"], lat: v["lat"], long: v["long"]}}
+    @ngo.add_regions(regions)
+    redirect_to :back, :notice => "Regions added successfully"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ngo
-      @ngo = Ngo.find(params[:id])
+      @ngo = Ngo.find(params[:id] || params[:ngo_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
