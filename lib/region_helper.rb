@@ -1,6 +1,6 @@
 module RegionHelper
 	def regions
-		all = Region.where({:regionfor => self.class.name}, {:regionforid => self.id.to_s})
+		all = Region.where({:regionfor => self.class.name, :regionforid => self.id.to_s})
 	end
 	def add_regions(regions)
 		regions.each do |region|
